@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -37.689
+TNS   : -346.274
+
+Type  : Slow 1200mV 85C Model Setup 'lat_pitch[2]'
+Slack : -6.084
+TNS   : -52.072
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.331
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'lat_pitch[2]'
+Slack : 0.537
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'lat_pitch[2]'
+Slack : -1.022
+TNS   : -9.371
+
+Type  : Slow 1200mV 85C Model Removal 'lat_pitch[2]'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -116.646
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lat_pitch[2]'
+Slack : 0.406
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -34.021
+TNS   : -308.126
+
+Type  : Slow 1200mV 0C Model Setup 'lat_pitch[2]'
+Slack : -5.488
+TNS   : -47.191
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.299
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'lat_pitch[2]'
+Slack : 0.539
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'lat_pitch[2]'
+Slack : -0.867
+TNS   : -7.989
+
+Type  : Slow 1200mV 0C Model Removal 'lat_pitch[2]'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -116.646
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lat_pitch[2]'
+Slack : 0.414
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -17.688
+TNS   : -126.529
+
+Type  : Fast 1200mV 0C Model Setup 'lat_pitch[2]'
+Slack : -2.540
+TNS   : -20.119
+
+Type  : Fast 1200mV 0C Model Hold 'lat_pitch[2]'
+Slack : 0.137
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'lat_pitch[2]'
+Slack : 0.055
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'lat_pitch[2]'
+Slack : 0.047
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -99.188
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lat_pitch[2]'
+Slack : 0.419
+TNS   : 0.000
+
+------------------------------------------------------------

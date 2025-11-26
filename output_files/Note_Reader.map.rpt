@@ -1,0 +1,1002 @@
+Analysis & Synthesis report for Note_Reader
+Fri Nov 14 01:31:32 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Note_Reader|send_state
+  9. State Machine - |Note_Reader|UART_TX:uart_tx_inst|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: UART_TX:uart_tx_inst
+ 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 22. Port Connectivity Checks: "ButtonDebounce:db_send"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Nov 14 01:31:32 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name                      ; Note_Reader                                     ;
+; Top-level Entity Name              ; Note_Reader                                     ;
+; Family                             ; MAX 10                                          ;
+; Total logic elements               ; 799                                             ;
+;     Total combinational functions  ; 776                                             ;
+;     Dedicated logic registers      ; 93                                              ;
+; Total registers                    ; 93                                              ;
+; Total pins                         ; 72                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
+; UFM blocks                         ; 0                                               ;
+; ADC blocks                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Top-level entity name                                            ; Note_Reader        ; Note_Reader        ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+; UART_TX.v                        ; yes             ; User Verilog HDL File        ; /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v                                   ;         ;
+; Note_Reader.v                    ; yes             ; User Verilog HDL File        ; /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v                               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/akarex/intelFPGA_lite/24.1std/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/akarex/intelFPGA_lite/24.1std/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/akarex/intelFPGA_lite/24.1std/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal241.inc                   ; yes             ; Megafunction                 ; /home/akarex/intelFPGA_lite/24.1std/quartus/libraries/megafunctions/aglobal241.inc      ;         ;
+; db/lpm_divide_25o.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_25o.tdf                       ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/abs_divider_4dg.tdf                      ;         ;
+; db/alt_u_div_ske.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_ske.tdf                        ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/add_sub_t3c.tdf                          ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/add_sub_u3c.tdf                          ;         ;
+; db/lpm_abs_5b9.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_5b9.tdf                          ;         ;
+; db/lpm_abs_bb9.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_bb9.tdf                          ;         ;
+; db/lpm_divide_i3o.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_i3o.tdf                       ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/abs_divider_kbg.tdf                      ;         ;
+; db/alt_u_div_she.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_she.tdf                        ;         ;
+; db/lpm_abs_r99.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_r99.tdf                          ;         ;
+; db/lpm_divide_52o.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_52o.tdf                       ;         ;
+; db/abs_divider_7ag.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/abs_divider_7ag.tdf                      ;         ;
+; db/alt_u_div_2fe.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_2fe.tdf                        ;         ;
+; db/lpm_abs_o99.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_o99.tdf                          ;         ;
+; db/lpm_divide_2ao.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_2ao.tdf                       ;         ;
+; db/lpm_divide_fbo.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_fbo.tdf                       ;         ;
+; db/lpm_divide_vco.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_vco.tdf                       ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 799            ;
+;                                             ;                ;
+; Total combinational functions               ; 776            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 295            ;
+;     -- 3 input functions                    ; 184            ;
+;     -- <=2 input functions                  ; 297            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 584            ;
+;     -- arithmetic mode                      ; 192            ;
+;                                             ;                ;
+; Total registers                             ; 93             ;
+;     -- Dedicated logic registers            ; 93             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 72             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 93             ;
+; Total fan-out                               ; 2735           ;
+; Average fan-out                             ; 2.69           ;
++---------------------------------------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                     ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                       ; Entity Name     ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |Note_Reader                          ; 776 (177)           ; 93 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 72   ; 0            ; 0          ; |Note_Reader                                                                                              ; Note_Reader     ; work         ;
+;    |ButtonDebounce:db_send|           ; 28 (28)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|ButtonDebounce:db_send                                                                       ; ButtonDebounce  ; work         ;
+;    |UART_TX:uart_tx_inst|             ; 65 (65)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|UART_TX:uart_tx_inst                                                                         ; UART_TX         ; work         ;
+;    |lpm_divide:Div0|                  ; 37 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div0                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_vco:auto_generated| ; 37 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div0|lpm_divide_vco:auto_generated                                                ; lpm_divide_vco  ; work         ;
+;          |abs_divider_4dg:divider|    ; 37 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;             |alt_u_div_ske:divider|   ; 37 (37)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider  ; alt_u_div_ske   ; work         ;
+;    |lpm_divide:Div1|                  ; 108 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div1                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_fbo:auto_generated| ; 108 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div1|lpm_divide_fbo:auto_generated                                                ; lpm_divide_fbo  ; work         ;
+;          |abs_divider_kbg:divider|    ; 108 (8)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div1|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg ; work         ;
+;             |alt_u_div_she:divider|   ; 100 (100)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div1|lpm_divide_fbo:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider  ; alt_u_div_she   ; work         ;
+;    |lpm_divide:Div2|                  ; 73 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div2                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_2ao:auto_generated| ; 73 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div2|lpm_divide_2ao:auto_generated                                                ; lpm_divide_2ao  ; work         ;
+;          |abs_divider_7ag:divider|    ; 73 (8)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div2|lpm_divide_2ao:auto_generated|abs_divider_7ag:divider                        ; abs_divider_7ag ; work         ;
+;             |alt_u_div_2fe:divider|   ; 65 (65)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Div2|lpm_divide_2ao:auto_generated|abs_divider_7ag:divider|alt_u_div_2fe:divider  ; alt_u_div_2fe   ; work         ;
+;    |lpm_divide:Mod0|                  ; 45 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod0                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_25o:auto_generated| ; 45 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod0|lpm_divide_25o:auto_generated                                                ; lpm_divide_25o  ; work         ;
+;          |abs_divider_4dg:divider|    ; 45 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;             |alt_u_div_ske:divider|   ; 45 (45)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider  ; alt_u_div_ske   ; work         ;
+;    |lpm_divide:Mod1|                  ; 150 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod1                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_i3o:auto_generated| ; 150 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod1|lpm_divide_i3o:auto_generated                                                ; lpm_divide_i3o  ; work         ;
+;          |abs_divider_kbg:divider|    ; 150 (18)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod1|lpm_divide_i3o:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg ; work         ;
+;             |alt_u_div_she:divider|   ; 111 (111)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod1|lpm_divide_i3o:auto_generated|abs_divider_kbg:divider|alt_u_div_she:divider  ; alt_u_div_she   ; work         ;
+;             |lpm_abs_5b9:my_abs_num|  ; 21 (21)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod1|lpm_divide_i3o:auto_generated|abs_divider_kbg:divider|lpm_abs_5b9:my_abs_num ; lpm_abs_5b9     ; work         ;
+;    |lpm_divide:Mod2|                  ; 93 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod2                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_52o:auto_generated| ; 93 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod2|lpm_divide_52o:auto_generated                                                ; lpm_divide_52o  ; work         ;
+;          |abs_divider_7ag:divider|    ; 93 (8)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod2|lpm_divide_52o:auto_generated|abs_divider_7ag:divider                        ; abs_divider_7ag ; work         ;
+;             |alt_u_div_2fe:divider|   ; 74 (74)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod2|lpm_divide_52o:auto_generated|abs_divider_7ag:divider|alt_u_div_2fe:divider  ; alt_u_div_2fe   ; work         ;
+;             |lpm_abs_r99:my_abs_num|  ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Note_Reader|lpm_divide:Mod2|lpm_divide_52o:auto_generated|abs_divider_7ag:divider|lpm_abs_r99:my_abs_num ; lpm_abs_r99     ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Note_Reader|send_state                                                                                                                                                             ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; send_state.1001 ; send_state.1000 ; send_state.0111 ; send_state.0110 ; send_state.0101 ; send_state.0100 ; send_state.0011 ; send_state.0010 ; send_state.0001 ; send_state.0000 ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; send_state.0000 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; send_state.0001 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; send_state.0010 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; send_state.0011 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; send_state.0100 ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 1               ;
+; send_state.0101 ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; send_state.0110 ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; send_state.0111 ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; send_state.1000 ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
+; send_state.1001 ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |Note_Reader|UART_TX:uart_tx_inst|state                      ;
++-------------+------------+------------+-------------+-----------+------------+
+; Name        ; state.STOP ; state.DATA ; state.START ; state.000 ; state.DONE ;
++-------------+------------+------------+-------------+-----------+------------+
+; state.000   ; 0          ; 0          ; 0           ; 0         ; 0          ;
+; state.START ; 0          ; 0          ; 1           ; 1         ; 0          ;
+; state.DATA  ; 0          ; 1          ; 0           ; 1         ; 0          ;
+; state.STOP  ; 1          ; 0          ; 0           ; 1         ; 0          ;
+; state.DONE  ; 0          ; 0          ; 0           ; 1         ; 1          ;
++-------------+------------+------------+-------------+-----------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; freq_hz[10]                                         ; Decoder1            ; yes                    ;
+; freq_hz[0]                                          ; Decoder1            ; yes                    ;
+; freq_hz[7]                                          ; Decoder1            ; yes                    ;
+; freq_hz[6]                                          ; Decoder1            ; yes                    ;
+; freq_hz[9]                                          ; Decoder1            ; yes                    ;
+; freq_hz[1]                                          ; Decoder1            ; yes                    ;
+; freq_hz[2]                                          ; Decoder1            ; yes                    ;
+; freq_hz[3]                                          ; Decoder1            ; yes                    ;
+; freq_hz[5]                                          ; Decoder1            ; yes                    ;
+; freq_hz[8]                                          ; Decoder1            ; yes                    ;
+; freq_hz[4]                                          ; Decoder1            ; yes                    ;
+; Number of user-specified and inferred latches = 11  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------+----------------------------------------------+
+; Register name                          ; Reason for Removal                           ;
++----------------------------------------+----------------------------------------------+
+; UART_TX:uart_tx_inst|shiftreg[9]       ; Stuck at VCC due to stuck port data_in       ;
+; tx_byte[7]                             ; Stuck at GND due to stuck port data_in       ;
+; UART_TX:uart_tx_inst|buffer_data[7]    ; Stuck at GND due to stuck port data_in       ;
+; send_state~14                          ; Lost fanout                                  ;
+; send_state~15                          ; Lost fanout                                  ;
+; send_state~16                          ; Lost fanout                                  ;
+; send_state~17                          ; Lost fanout                                  ;
+; UART_TX:uart_tx_inst|state~9           ; Lost fanout                                  ;
+; UART_TX:uart_tx_inst|state~10          ; Lost fanout                                  ;
+; UART_TX:uart_tx_inst|shiftreg[8]       ; Merged with UART_TX:uart_tx_inst|shiftreg[0] ;
+; Total Number of Removed Registers = 10 ;                                              ;
++----------------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 93    ;
+; Number of registers using Synchronous Clear  ; 35    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 71    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 53    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; UART_TX:uart_tx_inst|tx                 ; 2       ;
+; lat_octave[0]                           ; 20      ;
+; lat_pitch[3]                            ; 32      ;
+; lat_pitch[0]                            ; 30      ;
+; UART_TX:uart_tx_inst|shiftreg[3]        ; 1       ;
+; UART_TX:uart_tx_inst|shiftreg[1]        ; 1       ;
+; UART_TX:uart_tx_inst|shiftreg[0]        ; 2       ;
+; UART_TX:uart_tx_inst|shiftreg[2]        ; 1       ;
+; UART_TX:uart_tx_inst|shiftreg[7]        ; 1       ;
+; UART_TX:uart_tx_inst|shiftreg[5]        ; 1       ;
+; UART_TX:uart_tx_inst|shiftreg[4]        ; 1       ;
+; UART_TX:uart_tx_inst|shiftreg[6]        ; 1       ;
+; ButtonDebounce:db_send|sync[1]          ; 2       ;
+; ButtonDebounce:db_send|sync[0]          ; 1       ;
+; Total number of inverted registers = 14 ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |Note_Reader|ButtonDebounce:db_send|cnt[16]    ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |Note_Reader|UART_TX:uart_tx_inst|bit_idx[0]   ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |Note_Reader|UART_TX:uart_tx_inst|baud_cnt[11] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |Note_Reader|UART_TX:uart_tx_inst|shiftreg[0]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Note_Reader|UART_TX:uart_tx_inst|shiftreg[1]  ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |Note_Reader|Mux15                             ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |Note_Reader|UART_TX:uart_tx_inst|Selector25   ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; No         ; |Note_Reader|UART_TX:uart_tx_inst|Selector26   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_TX:uart_tx_inst ;
++----------------+----------+---------------------------------------+
+; Parameter Name ; Value    ; Type                                  ;
++----------------+----------+---------------------------------------+
+; CLK_FREQ       ; 50000000 ; Signed Integer                        ;
+; BAUD           ; 115200   ; Signed Integer                        ;
++----------------+----------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 17             ; Untyped                ;
+; LPM_WIDTHD             ; 11             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 11             ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_i3o ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 5              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_52o ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 5              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_2ao ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 11             ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_fbo ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 17             ; Untyped                ;
+; LPM_WIDTHD             ; 11             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_vco ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ButtonDebounce:db_send"                                                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; btn_down ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 72                          ;
+; cycloneiii_ff         ; 93                          ;
+;     CLR               ; 22                          ;
+;     CLR SCLR          ; 18                          ;
+;     ENA               ; 21                          ;
+;     ENA CLR           ; 15                          ;
+;     ENA CLR SCLR      ; 16                          ;
+;     ENA SCLR          ; 1                           ;
+; cycloneiii_lcell_comb ; 791                         ;
+;     arith             ; 192                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 70                          ;
+;         3 data inputs ; 118                         ;
+;     normal            ; 599                         ;
+;         0 data inputs ; 26                          ;
+;         1 data inputs ; 21                          ;
+;         2 data inputs ; 191                         ;
+;         3 data inputs ; 66                          ;
+;         4 data inputs ; 295                         ;
+;                       ;                             ;
+; Max LUT depth         ; 44.80                       ;
+; Average LUT depth     ; 26.48                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Fri Nov 14 01:31:24 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Note_Generator -c Note_Reader
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file UART_TX.v
+    Info (12023): Found entity 1: UART_TX File: /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v Line: 5
+Info (12021): Found 2 design units, including 2 entities, in source file Note_Reader.v
+    Info (12023): Found entity 1: Note_Reader File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 5
+    Info (12023): Found entity 2: ButtonDebounce File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 302
+Info (12127): Elaborating entity "Note_Reader" for the top level hierarchy
+Warning (10270): Verilog HDL Case Statement warning at Note_Reader.v(227): incomplete case statement has no default case item File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 227
+Warning (10270): Verilog HDL Case Statement warning at Note_Reader.v(232): incomplete case statement has no default case item File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 232
+Warning (10270): Verilog HDL Case Statement warning at Note_Reader.v(237): incomplete case statement has no default case item File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 237
+Warning (10270): Verilog HDL Case Statement warning at Note_Reader.v(242): incomplete case statement has no default case item File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 242
+Warning (10240): Verilog HDL Always Construct warning at Note_Reader.v(224): inferring latch(es) for variable "freq_hz", which holds its previous value in one or more paths through the always construct File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 224
+Warning (10230): Verilog HDL assignment warning at Note_Reader.v(253): truncated value with size 32 to match size of target (4) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+Warning (10230): Verilog HDL assignment warning at Note_Reader.v(254): truncated value with size 32 to match size of target (4) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+Warning (10230): Verilog HDL assignment warning at Note_Reader.v(255): truncated value with size 32 to match size of target (4) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+Info (10041): Inferred latch for "freq_hz[0]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[1]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[2]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[3]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[4]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[5]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[6]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[7]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[8]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[9]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[10]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[11]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[12]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[13]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[14]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (10041): Inferred latch for "freq_hz[15]" at Note_Reader.v(226) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+Info (12128): Elaborating entity "ButtonDebounce" for hierarchy "ButtonDebounce:db_send" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 39
+Warning (10230): Verilog HDL assignment warning at Note_Reader.v(322): truncated value with size 32 to match size of target (18) File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 322
+Info (12128): Elaborating entity "UART_TX" for hierarchy "UART_TX:uart_tx_inst" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 124
+Warning (10230): Verilog HDL assignment warning at UART_TX.v(76): truncated value with size 32 to match size of target (16) File: /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v Line: 76
+Warning (10230): Verilog HDL assignment warning at UART_TX.v(86): truncated value with size 32 to match size of target (16) File: /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v Line: 86
+Warning (10230): Verilog HDL assignment warning at UART_TX.v(90): truncated value with size 32 to match size of target (4) File: /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v Line: 90
+Warning (10230): Verilog HDL assignment warning at UART_TX.v(99): truncated value with size 32 to match size of target (16) File: /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v Line: 99
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+    Info (12134): Parameter "LPM_WIDTHN" = "17"
+    Info (12134): Parameter "LPM_WIDTHD" = "11"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_25o.tdf
+    Info (12023): Found entity 1: lpm_divide_25o File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_25o.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg File: /home/akarex/Desktop/Fall 2025/3201/Project/db/abs_divider_4dg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ske.tdf
+    Info (12023): Found entity 1: alt_u_div_ske File: /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_ske.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: /home/akarex/Desktop/Fall 2025/3201/Project/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: /home/akarex/Desktop/Fall 2025/3201/Project/db/add_sub_u3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5b9.tdf
+    Info (12023): Found entity 1: lpm_abs_5b9 File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_5b9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_bb9.tdf
+    Info (12023): Found entity 1: lpm_abs_bb9 File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_bb9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+    Info (12134): Parameter "LPM_WIDTHN" = "11"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_i3o.tdf
+    Info (12023): Found entity 1: lpm_divide_i3o File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_i3o.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: /home/akarex/Desktop/Fall 2025/3201/Project/db/abs_divider_kbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_she.tdf
+    Info (12023): Found entity 1: alt_u_div_she File: /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_she.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_r99.tdf
+    Info (12023): Found entity 1: lpm_abs_r99 File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_r99.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_52o.tdf
+    Info (12023): Found entity 1: lpm_divide_52o File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_52o.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_7ag.tdf
+    Info (12023): Found entity 1: abs_divider_7ag File: /home/akarex/Desktop/Fall 2025/3201/Project/db/abs_divider_7ag.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2fe.tdf
+    Info (12023): Found entity 1: alt_u_div_2fe File: /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_2fe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_o99.tdf
+    Info (12023): Found entity 1: lpm_abs_o99 File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_abs_o99.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter: File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 255
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_2ao.tdf
+    Info (12023): Found entity 1: lpm_divide_2ao File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_2ao.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 254
+    Info (12134): Parameter "LPM_WIDTHN" = "11"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fbo.tdf
+    Info (12023): Found entity 1: lpm_divide_fbo File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_fbo.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 253
+    Info (12134): Parameter "LPM_WIDTHN" = "17"
+    Info (12134): Parameter "LPM_WIDTHD" = "11"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_vco.tdf
+    Info (12023): Found entity 1: lpm_divide_vco File: /home/akarex/Desktop/Fall 2025/3201/Project/db/lpm_divide_vco.tdf Line: 25
+Info (13014): Ignored 34 buffer(s)
+    Info (13016): Ignored 34 CARRY_SUM buffer(s)
+Warning (13012): Latch freq_hz[0] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[7] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[6] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[9] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[1] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[2] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[3] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[5] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[8] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Warning (13012): Latch freq_hz[4] has unsafe behavior File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 226
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lat_pitch[2] File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 65
+Info (13000): Registers with preset signals will power-up high File: /home/akarex/Desktop/Fall 2025/3201/Project/UART_TX.v Line: 11
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 11
+    Warning (13410): Pin "HEX1[7]" is stuck at VCC File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 12
+    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 13
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 14
+    Warning (13410): Pin "HEX3[7]" is stuck at VCC File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 14
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 15
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 15
+    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 15
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider|add_sub_15_result_int[2]~20" File: /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_ske.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Div0|lpm_divide_vco:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider|add_sub_15_result_int[2]~20" File: /home/akarex/Desktop/Fall 2025/3201/Project/db/alt_u_div_ske.tdf Line: 62
+Warning (20013): Ignored 209 assignments for entity "DE10_LITE_Golden_Top" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CLK_10 -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[10] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[11] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[12] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[13] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[14] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[15] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[8] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_IO[9] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ARDUINO_RESET_N -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[10] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[11] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[12] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[8] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[9] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CAS_N -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CKE -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CLK -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CS_N -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[10] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[11] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[12] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[13] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[14] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[15] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[8] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[9] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_LDQM -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_UDQM -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[10] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[11] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[12] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[13] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[14] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[15] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[16] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[17] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[18] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[19] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[20] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[21] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[22] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[23] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[24] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[25] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[26] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[27] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[28] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[29] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[30] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[31] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[32] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[33] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[34] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[35] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[8] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[9] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_CS_N -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_INT[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_INT[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_SCLK -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_SDI -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GSENSOR_SDO -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to KEY[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[8] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[9] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK1_50 -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to MAX10_CLK2_50 -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[5] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[6] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[7] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[8] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[9] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[2] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[3] -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE10_LITE_Golden_Top was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE10_LITE_Golden_Top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE10_LITE_Golden_Top -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[9]" File: /home/akarex/Desktop/Fall 2025/3201/Project/Note_Reader.v Line: 7
+Info (21057): Implemented 874 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 59 output pins
+    Info (21061): Implemented 802 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 255 warnings
+    Info: Peak virtual memory: 443 megabytes
+    Info: Processing ended: Fri Nov 14 01:31:32 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:17
+
+

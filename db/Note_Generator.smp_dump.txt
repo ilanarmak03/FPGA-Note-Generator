@@ -1,0 +1,21 @@
+
+State Machine - |Note_Reader|send_state
+Name send_state.1001 send_state.1000 send_state.0111 send_state.0110 send_state.0101 send_state.0100 send_state.0011 send_state.0010 send_state.0001 send_state.0000 
+send_state.0000 0 0 0 0 0 0 0 0 0 0 
+send_state.0001 0 0 0 0 0 0 0 0 1 1 
+send_state.0010 0 0 0 0 0 0 0 1 0 1 
+send_state.0011 0 0 0 0 0 0 1 0 0 1 
+send_state.0100 0 0 0 0 0 1 0 0 0 1 
+send_state.0101 0 0 0 0 1 0 0 0 0 1 
+send_state.0110 0 0 0 1 0 0 0 0 0 1 
+send_state.0111 0 0 1 0 0 0 0 0 0 1 
+send_state.1000 0 1 0 0 0 0 0 0 0 1 
+send_state.1001 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |Note_Reader|UART_TX:uart_tx_inst|state
+Name state.STOP state.DATA state.START state.000 state.DONE 
+state.000 0 0 0 0 0 
+state.START 0 0 1 1 0 
+state.DATA 0 1 0 1 0 
+state.STOP 1 0 0 1 0 
+state.DONE 0 0 0 1 1 
