@@ -1,0 +1,72 @@
+//===========================================================
+// Square_Wave_Generator — Fully Commented
+// Generates a square wave on audio_out at the desired frequency.
+// Works by dividing the 50 MHz system clock.
+//
+// Formula:
+//      desired_frequency = F
+//      period in clock cycles = 50,000,000 / (2*F)
+// Because we toggle the output every half-period.
+//===========================================================
+module Square_Wave_Generator(
+    input  wire        clk,          // 50 MHz system clock
+    input  wire        reset_n,      // active-low reset
+    input  wire [15:0] freq_hz,      // desired output frequency in Hz
+    output reg         audio_out     // square wave output
+);
+
+    // Holds the number of cycles for HALF the period
+    // We toggle the audio output every half period.
+    reg [31:0] half_period_cycles;
+
+    // Counts clock cycles up to half_period_cycles
+    reg [31:0] cycle_counter;
+
+    //===========================================================
+    // MAIN LOGIC — triggered on 50 MHz rising edge
+    //===========================================================
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            // Reset everything
+            cycle_counter       <= 32'd0;
+            half_period_cycles  <= 32'd50000000 / (2 * 440); // default A4 = 440 Hz
+            audio_out           <= 0;
+
+        end else begin
+
+            //===================================================
+            // Update half-period when the requested frequency changes
+            //
+            // Avoid division-by-zero (freq_hz = 0 → silence)
+            //===================================================
+            if (freq_hz == 0)
+                half_period_cycles <= 32'd0;     // special case: no output
+            else
+                half_period_cycles <= 50_000_000 / (freq_hz * 2);
+
+
+            //===================================================
+            // If half_period_cycles is zero → output stays LOW
+            //===================================================
+            if (half_period_cycles == 0) begin
+                audio_out <= 0;                  // silence
+                cycle_counter <= 0;
+
+            end else begin
+
+                // Count up each 50 MHz clock cycle
+                cycle_counter <= cycle_counter + 1;
+
+                //===================================================
+                // When count reaches half period → toggle output
+                //===================================================
+                if (cycle_counter >= half_period_cycles) begin
+                    cycle_counter <= 0;          // reset counter
+                    audio_out     <= ~audio_out; // toggle square wave
+                end
+
+            end
+        end
+    end
+
+endmodule

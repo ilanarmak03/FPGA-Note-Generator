@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 {
     if (argc < 2)
     {
-        std::cout << "Usage: ./note_player /dev/ttyUSB0\n";
+        std::cout << "Usage: ./note_player /dev/ttyACM0\n";
         return 1;
     }
 

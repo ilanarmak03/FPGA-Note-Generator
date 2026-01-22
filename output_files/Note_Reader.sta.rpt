@@ -1,5 +1,5 @@
 Timing Analyzer report for Note_Reader
-Fri Nov 14 01:31:53 2025
+Tue Nov 25 23:03:19 2025
 Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 
 
@@ -94,13 +94,15 @@ on the Quartus Prime software download page.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.39        ;
+; Average used               ; 2.28        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   8.1%      ;
-;     Processors 3-6         ;   7.7%      ;
+;     Processor 2            ;  26.4%      ;
+;     Processor 3            ;  25.5%      ;
+;     Processor 4            ;  25.3%      ;
+;     Processors 5-6         ;  25.3%      ;
 +----------------------------+-------------+
 
 
@@ -119,8 +121,8 @@ on the Quartus Prime software download page.
 +------------+-----------------+--------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name   ; Note ;
 +------------+-----------------+--------------+------+
-; 164.15 MHz ; 164.15 MHz      ; lat_pitch[2] ;      ;
-; 166.64 MHz ; 166.64 MHz      ; CLOCK_50     ;      ;
+; 10.01 MHz  ; 10.01 MHz       ; CLOCK_50     ;      ;
+; 137.55 MHz ; 137.55 MHz      ; lat_pitch[2] ;      ;
 +------------+-----------------+--------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -130,8 +132,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+---------+---------------+
 ; Clock        ; Slack   ; End Point TNS ;
 +--------------+---------+---------------+
-; CLOCK_50     ; -37.689 ; -346.274      ;
-; lat_pitch[2] ; -6.084  ; -52.072       ;
+; CLOCK_50     ; -98.882 ; -2798.098     ;
+; lat_pitch[2] ; -5.906  ; -53.307       ;
 +--------------+---------+---------------+
 
 
@@ -140,8 +142,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+-------+---------------+
 ; Clock        ; Slack ; End Point TNS ;
 +--------------+-------+---------------+
-; CLOCK_50     ; 0.331 ; 0.000         ;
-; lat_pitch[2] ; 0.537 ; 0.000         ;
+; CLOCK_50     ; 0.324 ; 0.000         ;
+; lat_pitch[2] ; 0.788 ; 0.000         ;
 +--------------+-------+---------------+
 
 
@@ -150,17 +152,17 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+--------+----------------+
 ; Clock        ; Slack  ; End Point TNS  ;
 +--------------+--------+----------------+
-; lat_pitch[2] ; -1.022 ; -9.371         ;
+; lat_pitch[2] ; -1.373 ; -11.112        ;
 +--------------+--------+----------------+
 
 
 +---------------------------------------+
 ; Slow 1200mV 85C Model Removal Summary ;
-+--------------+-------+----------------+
-; Clock        ; Slack ; End Point TNS  ;
-+--------------+-------+----------------+
-; lat_pitch[2] ; 0.391 ; 0.000          ;
-+--------------+-------+----------------+
++--------------+--------+---------------+
+; Clock        ; Slack  ; End Point TNS ;
++--------------+--------+---------------+
+; lat_pitch[2] ; -0.921 ; -0.921        ;
++--------------+--------+---------------+
 
 
 +---------------------------------------------------+
@@ -168,8 +170,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+--------+---------------------------+
 ; Clock        ; Slack  ; End Point TNS             ;
 +--------------+--------+---------------------------+
-; CLOCK_50     ; -3.000 ; -116.646                  ;
-; lat_pitch[2] ; 0.406  ; 0.000                     ;
+; CLOCK_50     ; -3.000 ; -292.614                  ;
+; lat_pitch[2] ; 0.407  ; 0.000                     ;
 +--------------+--------+---------------------------+
 
 
@@ -185,8 +187,8 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +------------+-----------------+--------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name   ; Note ;
 +------------+-----------------+--------------+------+
-; 178.38 MHz ; 178.38 MHz      ; lat_pitch[2] ;      ;
-; 184.74 MHz ; 184.74 MHz      ; CLOCK_50     ;      ;
+; 11.04 MHz  ; 11.04 MHz       ; CLOCK_50     ;      ;
+; 152.07 MHz ; 152.07 MHz      ; lat_pitch[2] ;      ;
 +------------+-----------------+--------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -196,8 +198,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+---------+---------------+
 ; Clock        ; Slack   ; End Point TNS ;
 +--------------+---------+---------------+
-; CLOCK_50     ; -34.021 ; -308.126      ;
-; lat_pitch[2] ; -5.488  ; -47.191       ;
+; CLOCK_50     ; -89.584 ; -2519.427     ;
+; lat_pitch[2] ; -5.386  ; -48.183       ;
 +--------------+---------+---------------+
 
 
@@ -206,8 +208,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+-------+---------------+
 ; Clock        ; Slack ; End Point TNS ;
 +--------------+-------+---------------+
-; CLOCK_50     ; 0.299 ; 0.000         ;
-; lat_pitch[2] ; 0.539 ; 0.000         ;
+; CLOCK_50     ; 0.294 ; 0.000         ;
+; lat_pitch[2] ; 0.772 ; 0.000         ;
 +--------------+-------+---------------+
 
 
@@ -216,17 +218,17 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+--------+---------------+
 ; Clock        ; Slack  ; End Point TNS ;
 +--------------+--------+---------------+
-; lat_pitch[2] ; -0.867 ; -7.989        ;
+; lat_pitch[2] ; -1.205 ; -9.710        ;
 +--------------+--------+---------------+
 
 
-+--------------------------------------+
-; Slow 1200mV 0C Model Removal Summary ;
-+--------------+-------+---------------+
-; Clock        ; Slack ; End Point TNS ;
-+--------------+-------+---------------+
-; lat_pitch[2] ; 0.429 ; 0.000         ;
-+--------------+-------+---------------+
++---------------------------------------+
+; Slow 1200mV 0C Model Removal Summary  ;
++--------------+--------+---------------+
+; Clock        ; Slack  ; End Point TNS ;
++--------------+--------+---------------+
+; lat_pitch[2] ; -0.762 ; -0.762        ;
++--------------+--------+---------------+
 
 
 +--------------------------------------------------+
@@ -234,8 +236,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------+--------+--------------------------+
 ; Clock        ; Slack  ; End Point TNS            ;
 +--------------+--------+--------------------------+
-; CLOCK_50     ; -3.000 ; -116.646                 ;
-; lat_pitch[2] ; 0.414  ; 0.000                    ;
+; CLOCK_50     ; -3.000 ; -292.614                 ;
+; lat_pitch[2] ; 0.413  ; 0.000                    ;
 +--------------+--------+--------------------------+
 
 
@@ -251,8 +253,8 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------+---------+---------------+
 ; Clock        ; Slack   ; End Point TNS ;
 +--------------+---------+---------------+
-; CLOCK_50     ; -17.688 ; -126.529      ;
-; lat_pitch[2] ; -2.540  ; -20.119       ;
+; CLOCK_50     ; -47.310 ; -1238.916     ;
+; lat_pitch[2] ; -2.395  ; -21.217       ;
 +--------------+---------+---------------+
 
 
@@ -261,27 +263,27 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------+-------+---------------+
 ; Clock        ; Slack ; End Point TNS ;
 +--------------+-------+---------------+
-; lat_pitch[2] ; 0.137 ; 0.000         ;
-; CLOCK_50     ; 0.152 ; 0.000         ;
+; CLOCK_50     ; 0.148 ; 0.000         ;
+; lat_pitch[2] ; 0.238 ; 0.000         ;
 +--------------+-------+---------------+
 
 
 +---------------------------------------+
 ; Fast 1200mV 0C Model Recovery Summary ;
-+--------------+-------+----------------+
-; Clock        ; Slack ; End Point TNS  ;
-+--------------+-------+----------------+
-; lat_pitch[2] ; 0.055 ; 0.000          ;
-+--------------+-------+----------------+
++--------------+--------+---------------+
+; Clock        ; Slack  ; End Point TNS ;
++--------------+--------+---------------+
+; lat_pitch[2] ; -0.163 ; -0.419        ;
++--------------+--------+---------------+
 
 
-+--------------------------------------+
-; Fast 1200mV 0C Model Removal Summary ;
-+--------------+-------+---------------+
-; Clock        ; Slack ; End Point TNS ;
-+--------------+-------+---------------+
-; lat_pitch[2] ; 0.047 ; 0.000         ;
-+--------------+-------+---------------+
++---------------------------------------+
+; Fast 1200mV 0C Model Removal Summary  ;
++--------------+--------+---------------+
+; Clock        ; Slack  ; End Point TNS ;
++--------------+--------+---------------+
+; lat_pitch[2] ; -0.559 ; -0.559        ;
++--------------+--------+---------------+
 
 
 +--------------------------------------------------+
@@ -289,8 +291,8 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------+--------+--------------------------+
 ; Clock        ; Slack  ; End Point TNS            ;
 +--------------+--------+--------------------------+
-; CLOCK_50     ; -3.000 ; -99.188                  ;
-; lat_pitch[2] ; 0.419  ; 0.000                    ;
+; CLOCK_50     ; -3.000 ; -247.641                 ;
+; lat_pitch[2] ; 0.396  ; 0.000                    ;
 +--------------+--------+--------------------------+
 
 
@@ -301,23 +303,23 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 0.690 ns
+Worst Case Available Settling Time: 0.681 ns
 
 
 
 
-+--------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                            ;
-+------------------+----------+-------+----------+---------+---------------------+
-; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -37.689  ; 0.137 ; -1.022   ; 0.047   ; -3.000              ;
-;  CLOCK_50        ; -37.689  ; 0.152 ; N/A      ; N/A     ; -3.000              ;
-;  lat_pitch[2]    ; -6.084   ; 0.137 ; -1.022   ; 0.047   ; 0.406               ;
-; Design-wide TNS  ; -398.346 ; 0.0   ; -9.371   ; 0.0     ; -116.646            ;
-;  CLOCK_50        ; -346.274 ; 0.000 ; N/A      ; N/A     ; -116.646            ;
-;  lat_pitch[2]    ; -52.072  ; 0.000 ; -9.371   ; 0.000   ; 0.000               ;
-+------------------+----------+-------+----------+---------+---------------------+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -98.882   ; 0.148 ; -1.373   ; -0.921  ; -3.000              ;
+;  CLOCK_50        ; -98.882   ; 0.148 ; N/A      ; N/A     ; -3.000              ;
+;  lat_pitch[2]    ; -5.906    ; 0.238 ; -1.373   ; -0.921  ; 0.396               ;
+; Design-wide TNS  ; -2851.405 ; 0.0   ; -11.112  ; -0.921  ; -292.614            ;
+;  CLOCK_50        ; -2798.098 ; 0.000 ; N/A      ; N/A     ; -292.614            ;
+;  lat_pitch[2]    ; -53.307   ; 0.000 ; -11.112  ; -0.921  ; 0.000               ;
++------------------+-----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -336,6 +338,7 @@ Worst Case Available Settling Time: 0.690 ns
 ; LEDR[7]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[8]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LEDR[9]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; AUDIO_OUT    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; HEX0[0]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; HEX0[1]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; HEX0[2]      ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -432,6 +435,7 @@ Worst Case Available Settling Time: 0.690 ns
 ; LEDR[7]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.107 V            ; 0.46 V                               ; 0.279 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.107 V           ; 0.46 V                              ; 0.279 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[8]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.107 V            ; 0.46 V                               ; 0.279 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.107 V           ; 0.46 V                              ; 0.279 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[9]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
+; AUDIO_OUT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0619 V           ; 0.272 V                              ; 0.096 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0619 V          ; 0.272 V                             ; 0.096 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
 ; HEX0[0]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.107 V            ; 0.46 V                               ; 0.279 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.107 V           ; 0.46 V                              ; 0.279 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; HEX0[1]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
 ; HEX0[2]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.27e-08 V                   ; 3.23 V              ; -0.106 V            ; 0.46 V                               ; 0.281 V                              ; 3.06e-10 s                  ; 4.34e-10 s                  ; No                         ; Yes                        ; 3.08 V                      ; 5.27e-08 V                  ; 3.23 V             ; -0.106 V           ; 0.46 V                              ; 0.281 V                             ; 3.06e-10 s                 ; 4.34e-10 s                 ; No                        ; Yes                       ;
@@ -500,6 +504,7 @@ Worst Case Available Settling Time: 0.690 ns
 ; LEDR[7]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0592 V           ; 0.248 V                              ; 0.172 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0592 V          ; 0.248 V                             ; 0.172 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; LEDR[8]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0592 V           ; 0.248 V                              ; 0.172 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0592 V          ; 0.248 V                             ; 0.172 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; LEDR[9]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
+; AUDIO_OUT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.0389 V           ; 0.145 V                              ; 0.139 V                              ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.0389 V          ; 0.145 V                             ; 0.139 V                             ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
 ; HEX0[0]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0592 V           ; 0.248 V                              ; 0.172 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0592 V          ; 0.248 V                             ; 0.172 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; HEX0[1]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
 ; HEX0[2]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 5.35e-06 V                   ; 3.17 V              ; -0.0587 V           ; 0.248 V                              ; 0.173 V                              ; 4.61e-10 s                  ; 6e-10 s                     ; No                         ; No                         ; 3.08 V                      ; 5.35e-06 V                  ; 3.17 V             ; -0.0587 V          ; 0.248 V                             ; 0.173 V                             ; 4.61e-10 s                 ; 6e-10 s                    ; No                        ; No                        ;
@@ -568,6 +573,7 @@ Worst Case Available Settling Time: 0.690 ns
 ; LEDR[7]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[8]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; LEDR[9]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; AUDIO_OUT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; HEX0[0]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; HEX0[1]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; HEX0[2]      ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
@@ -625,8 +631,8 @@ Worst Case Available Settling Time: 0.690 ns
 +--------------+--------------+--------------+----------+----------+----------+
 ; From Clock   ; To Clock     ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
 +--------------+--------------+--------------+----------+----------+----------+
-; CLOCK_50     ; CLOCK_50     ; 1766         ; 0        ; 0        ; 0        ;
-; lat_pitch[2] ; CLOCK_50     ; > 2147483647 ; 10       ; 0        ; 0        ;
+; CLOCK_50     ; CLOCK_50     ; > 2147483647 ; 0        ; 0        ; 0        ;
+; lat_pitch[2] ; CLOCK_50     ; > 2147483647 ; 12       ; 0        ; 0        ;
 ; CLOCK_50     ; lat_pitch[2] ; 131          ; 0        ; 0        ; 0        ;
 ; lat_pitch[2] ; lat_pitch[2] ; 33           ; 33       ; 0        ; 0        ;
 +--------------+--------------+--------------+----------+----------+----------+
@@ -638,8 +644,8 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------+--------------+--------------+----------+----------+----------+
 ; From Clock   ; To Clock     ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
 +--------------+--------------+--------------+----------+----------+----------+
-; CLOCK_50     ; CLOCK_50     ; 1766         ; 0        ; 0        ; 0        ;
-; lat_pitch[2] ; CLOCK_50     ; > 2147483647 ; 10       ; 0        ; 0        ;
+; CLOCK_50     ; CLOCK_50     ; > 2147483647 ; 0        ; 0        ; 0        ;
+; lat_pitch[2] ; CLOCK_50     ; > 2147483647 ; 12       ; 0        ; 0        ;
 ; CLOCK_50     ; lat_pitch[2] ; 131          ; 0        ; 0        ; 0        ;
 ; lat_pitch[2] ; lat_pitch[2] ; 33           ; 33       ; 0        ; 0        ;
 +--------------+--------------+--------------+----------+----------+----------+
@@ -686,9 +692,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 11    ; 11   ;
-; Unconstrained Input Port Paths  ; 162   ; 162  ;
-; Unconstrained Output Ports      ; 51    ; 51   ;
-; Unconstrained Output Port Paths ; 341   ; 341  ;
+; Unconstrained Input Port Paths  ; 306   ; 306  ;
+; Unconstrained Output Ports      ; 52    ; 52   ;
+; Unconstrained Output Port Paths ; 342   ; 342  ;
 +---------------------------------+-------+------+
 
 
@@ -726,6 +732,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
+; AUDIO_OUT   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -804,6 +811,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------+---------------------------------------------------------------------------------------+
 ; Output Port ; Comment                                                                               ;
 +-------------+---------------------------------------------------------------------------------------+
+; AUDIO_OUT   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -864,7 +872,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Fri Nov 14 01:31:50 2025
+    Info: Processing started: Tue Nov 25 23:03:16 2025
 Info: Command: quartus_sta Note_Generator -c Note_Reader
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 209 assignments for entity "DE10_LITE_Golden_Top" -- entity does not exist in design
@@ -1093,29 +1101,29 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -37.689
+Info (332146): Worst-case setup slack is -98.882
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -37.689            -346.274 CLOCK_50 
-    Info (332119):    -6.084             -52.072 lat_pitch[2] 
-Info (332146): Worst-case hold slack is 0.331
+    Info (332119):   -98.882           -2798.098 CLOCK_50 
+    Info (332119):    -5.906             -53.307 lat_pitch[2] 
+Info (332146): Worst-case hold slack is 0.324
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.331               0.000 CLOCK_50 
-    Info (332119):     0.537               0.000 lat_pitch[2] 
-Info (332146): Worst-case recovery slack is -1.022
+    Info (332119):     0.324               0.000 CLOCK_50 
+    Info (332119):     0.788               0.000 lat_pitch[2] 
+Info (332146): Worst-case recovery slack is -1.373
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.022              -9.371 lat_pitch[2] 
-Info (332146): Worst-case removal slack is 0.391
+    Info (332119):    -1.373             -11.112 lat_pitch[2] 
+Info (332146): Worst-case removal slack is -0.921
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.391               0.000 lat_pitch[2] 
+    Info (332119):    -0.921              -0.921 lat_pitch[2] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -116.646 CLOCK_50 
-    Info (332119):     0.406               0.000 lat_pitch[2] 
+    Info (332119):    -3.000            -292.614 CLOCK_50 
+    Info (332119):     0.407               0.000 lat_pitch[2] 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1200mV 0C Model
@@ -1124,70 +1132,70 @@ Warning (334000): Timing characteristics of device 10M50DAF484C6GES are prelimin
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -34.021
+Info (332146): Worst-case setup slack is -89.584
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -34.021            -308.126 CLOCK_50 
-    Info (332119):    -5.488             -47.191 lat_pitch[2] 
-Info (332146): Worst-case hold slack is 0.299
+    Info (332119):   -89.584           -2519.427 CLOCK_50 
+    Info (332119):    -5.386             -48.183 lat_pitch[2] 
+Info (332146): Worst-case hold slack is 0.294
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.299               0.000 CLOCK_50 
-    Info (332119):     0.539               0.000 lat_pitch[2] 
-Info (332146): Worst-case recovery slack is -0.867
+    Info (332119):     0.294               0.000 CLOCK_50 
+    Info (332119):     0.772               0.000 lat_pitch[2] 
+Info (332146): Worst-case recovery slack is -1.205
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.867              -7.989 lat_pitch[2] 
-Info (332146): Worst-case removal slack is 0.429
+    Info (332119):    -1.205              -9.710 lat_pitch[2] 
+Info (332146): Worst-case removal slack is -0.762
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.429               0.000 lat_pitch[2] 
+    Info (332119):    -0.762              -0.762 lat_pitch[2] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -116.646 CLOCK_50 
-    Info (332119):     0.414               0.000 lat_pitch[2] 
+    Info (332119):    -3.000            -292.614 CLOCK_50 
+    Info (332119):     0.413               0.000 lat_pitch[2] 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -17.688
+Info (332146): Worst-case setup slack is -47.310
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -17.688            -126.529 CLOCK_50 
-    Info (332119):    -2.540             -20.119 lat_pitch[2] 
-Info (332146): Worst-case hold slack is 0.137
+    Info (332119):   -47.310           -1238.916 CLOCK_50 
+    Info (332119):    -2.395             -21.217 lat_pitch[2] 
+Info (332146): Worst-case hold slack is 0.148
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.137               0.000 lat_pitch[2] 
-    Info (332119):     0.152               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is 0.055
+    Info (332119):     0.148               0.000 CLOCK_50 
+    Info (332119):     0.238               0.000 lat_pitch[2] 
+Info (332146): Worst-case recovery slack is -0.163
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.055               0.000 lat_pitch[2] 
-Info (332146): Worst-case removal slack is 0.047
+    Info (332119):    -0.163              -0.419 lat_pitch[2] 
+Info (332146): Worst-case removal slack is -0.559
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.047               0.000 lat_pitch[2] 
+    Info (332119):    -0.559              -0.559 lat_pitch[2] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -99.188 CLOCK_50 
-    Info (332119):     0.419               0.000 lat_pitch[2] 
+    Info (332119):    -3.000            -247.641 CLOCK_50 
+    Info (332119):     0.396               0.000 lat_pitch[2] 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 0.690 ns
+    Info (332114): Worst Case Available Settling Time: 0.681 ns
     Info (332114): 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 217 warnings
-    Info: Peak virtual memory: 572 megabytes
-    Info: Processing ended: Fri Nov 14 01:31:53 2025
+    Info: Peak virtual memory: 593 megabytes
+    Info: Processing ended: Tue Nov 25 23:03:19 2025
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:06
 
 

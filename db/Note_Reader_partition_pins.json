@@ -48,6 +48,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "AUDIO_OUT",
+					"strict" : false
+				},
+				{
 					"name" : "HEX0[0]",
 					"strict" : false
 				},

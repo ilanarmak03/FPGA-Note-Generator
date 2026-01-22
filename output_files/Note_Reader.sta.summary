@@ -3,99 +3,99 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -37.689
-TNS   : -346.274
+Slack : -98.882
+TNS   : -2798.098
 
 Type  : Slow 1200mV 85C Model Setup 'lat_pitch[2]'
-Slack : -6.084
-TNS   : -52.072
+Slack : -5.906
+TNS   : -53.307
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.331
+Slack : 0.324
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'lat_pitch[2]'
-Slack : 0.537
+Slack : 0.788
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'lat_pitch[2]'
-Slack : -1.022
-TNS   : -9.371
+Slack : -1.373
+TNS   : -11.112
 
 Type  : Slow 1200mV 85C Model Removal 'lat_pitch[2]'
-Slack : 0.391
-TNS   : 0.000
+Slack : -0.921
+TNS   : -0.921
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -116.646
+TNS   : -292.614
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lat_pitch[2]'
-Slack : 0.406
+Slack : 0.407
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -34.021
-TNS   : -308.126
+Slack : -89.584
+TNS   : -2519.427
 
 Type  : Slow 1200mV 0C Model Setup 'lat_pitch[2]'
-Slack : -5.488
-TNS   : -47.191
+Slack : -5.386
+TNS   : -48.183
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.299
+Slack : 0.294
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'lat_pitch[2]'
-Slack : 0.539
+Slack : 0.772
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'lat_pitch[2]'
-Slack : -0.867
-TNS   : -7.989
+Slack : -1.205
+TNS   : -9.710
 
 Type  : Slow 1200mV 0C Model Removal 'lat_pitch[2]'
-Slack : 0.429
-TNS   : 0.000
+Slack : -0.762
+TNS   : -0.762
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -116.646
+TNS   : -292.614
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lat_pitch[2]'
-Slack : 0.414
+Slack : 0.413
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -17.688
-TNS   : -126.529
+Slack : -47.310
+TNS   : -1238.916
 
 Type  : Fast 1200mV 0C Model Setup 'lat_pitch[2]'
-Slack : -2.540
-TNS   : -20.119
-
-Type  : Fast 1200mV 0C Model Hold 'lat_pitch[2]'
-Slack : 0.137
-TNS   : 0.000
+Slack : -2.395
+TNS   : -21.217
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.152
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'lat_pitch[2]'
+Slack : 0.238
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'lat_pitch[2]'
-Slack : 0.055
-TNS   : 0.000
+Slack : -0.163
+TNS   : -0.419
 
 Type  : Fast 1200mV 0C Model Removal 'lat_pitch[2]'
-Slack : 0.047
-TNS   : 0.000
+Slack : -0.559
+TNS   : -0.559
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -99.188
+TNS   : -247.641
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lat_pitch[2]'
-Slack : 0.419
+Slack : 0.396
 TNS   : 0.000
 
 ------------------------------------------------------------

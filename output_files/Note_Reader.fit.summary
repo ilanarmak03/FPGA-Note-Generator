@@ -1,15 +1,15 @@
-Fitter Status : Successful - Fri Nov 14 01:31:45 2025
+Fitter Status : Successful - Tue Nov 25 23:03:11 2025
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : Note_Reader
 Top-level Entity Name : Note_Reader
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 788 / 49,760 ( 2 % )
-    Total combinational functions : 778 / 49,760 ( 2 % )
-    Dedicated logic registers : 93 / 49,760 ( < 1 % )
-Total registers : 93
-Total pins : 72 / 360 ( 20 % )
+Total logic elements : 3,524 / 49,760 ( 7 % )
+    Total combinational functions : 3,506 / 49,760 ( 7 % )
+    Dedicated logic registers : 237 / 49,760 ( < 1 % )
+Total registers : 237
+Total pins : 73 / 360 ( 20 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
