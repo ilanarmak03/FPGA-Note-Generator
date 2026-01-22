@@ -84,9 +84,11 @@ The FPGA transmits ASCII text lines at **115200 8N1**. Example:
 **Compile:**
 ```bash
 g++ -std=c++17 -Wall -O2 note_player.cpp -o note_player -lportaudio
+```
 **Run (example):**
 ```bash
 ./note_player /dev/ttyACM0
+```
 
 ## Pins ##
 - PIN_AA8 (GPIO_[24]): GPIO for UART message
