@@ -18,7 +18,7 @@ This project generates selectable musical notes on an FPGA as a square wave deri
 ## Directory Structure (Top Level)
 
 This repository contains a Quartus FPGA design for a note (tone) generator. At the top level you will find Verilog RTL modules, Quartus project/config files, build artifacts, simulation resources, a small C++ helper component, and documentation/submission packages.
-
+```
 ├── 3201_Report.pdf
 ├── db
 ├── Freq_Measure.v
@@ -42,7 +42,7 @@ This repository contains a Quartus FPGA design for a note (tone) generator. At t
 ├── Square_Wave_Generator.v.bak
 ├── UART_TX.v
 └── UART_TX.v.bak
-
+```
 
 ### RTL Source (Verilog)
 - `Note_Reader.v`  
